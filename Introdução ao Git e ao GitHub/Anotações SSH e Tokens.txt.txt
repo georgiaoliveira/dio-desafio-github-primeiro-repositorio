@@ -1,0 +1,45 @@
+A Chave SSH é uma forma de estabelecer um conexão segura
+e encriptada entre duas máquinas. "Máquina confiável"
+Chave SSH ajuda ao repositório a reconhecer a assinatura
+da máquina confiável.
+
+Passo-a-passo:
+Settings>SSH and GPG keys>Add new key 
+
+- Abrir o Git Bash(CLI)
+Sequência de comandos:
+ssh-keygen  -t ed25519 -C (e-mail de acesso GitHub) 
+*Após esse comando aperta ENTER de novo e digita a senha
+de acesso do repositório*
+- Depois de executar com a senha, ele vai confirmar se a
+chave pub/priv foi registrada e vai exibir uma imagem de caracteres
+se estiver tudo ok
+
+>
+- Com o comando "cd" vai até a pasta oculta criada para o
+par de chaves
+$ cd /c/Users/.../.ssh/
+- Comando de listar os arquivos de dentro da /.ssh
+$ ls
+- Comando para visualizar o conteúdo da chave
+$ cat id_ed25519.pub 
+(uso da tecla TAB para completar os nomes dos arquivos)
+*Após esses comandos, será exibida a chave pública*
+
+>
+- Volta para a página do GitHub de SSH keys/Add new
+- Cola a chave exibida no GitBash
+- Confirma com a senha do repositório
+- Chave SSH ok
+
+Parte 2 para a chave funcionar corretamente depois do registro
+no repositório:
+- Volta pro GitBash
+- Comando para inicializar o SSH agent (fica responsável por pegar as chaves/identificar)
+$ eval $(ssh-agent -s)
+*Exibe o código do processo que vai rodar no plano de fundo do computador*
+- Através desse comando será enviada a informação da chave que já foi gerada para
+que o ssh-agent possa reconhecer com a chave privada
+$ ssh-add id_ed25519 
+*Vai pedir a senha que foi gerada anteriormente*
+*Vai exibir o e-mail de acesso se tudo finalizar corretamente*
