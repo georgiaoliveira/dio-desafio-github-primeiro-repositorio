@@ -2,7 +2,6 @@ Git: CLI - Comand Line Interface
 
 Alguns comandos para memorizar
 dir - listar pastas/diretórios
-cd... - voltar pastas
 git status - exibe "alterações" dentro de onde está
 git add-A ou git add . - p/ a máquina entender que o arquivo será considerado no controle de versão (repositório GitHub)
 git commit -m "" - nas aspas é importante adicionar comentários que façam sentido para o que está sendo "comitado"
